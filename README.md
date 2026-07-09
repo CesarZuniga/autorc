@@ -5,7 +5,7 @@
 `autorc` *generates* rules and slash-commands specific to your stack and writes them in the native
 format of each assistant — Claude Code, Cursor, GitHub Copilot, and opencode.
 
-📖 **Docs & portal:** deployed via GitHub Pages from [`docs/`](./docs/index.html).
+📖 **Docs & portal:** https://cesarzuniga.github.io/autorc (deployed via GitHub Pages from [`docs/`](./docs/index.html)).
 
 ```bash
 npx autorc

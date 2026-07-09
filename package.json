@@ -16,6 +16,14 @@
   ],
   "license": "MIT",
   "author": "Cesar Zuniga",
+  "homepage": "https://cesarzuniga.github.io/autorc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CesarZuniga/autorc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CesarZuniga/autorc/issues"
+  },
   "type": "module",
   "bin": {
     "autorc": "index.mjs"
