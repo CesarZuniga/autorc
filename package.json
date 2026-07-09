@@ -1,0 +1,45 @@
+{
+  "name": "autorc",
+  "version": "0.0.1",
+  "description": "Auto-detect your tech stack and generate tailored rules & commands for AI code assistants (Claude Code, Cursor, Copilot, opencode)",
+  "keywords": [
+    "ai",
+    "agent",
+    "claude",
+    "cursor",
+    "copilot",
+    "opencode",
+    "rules",
+    "commands",
+    "cli",
+    "detect"
+  ],
+  "license": "MIT",
+  "author": "Cesar Zuniga",
+  "type": "module",
+  "bin": {
+    "autorc": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "*.ts",
+    "writers/*.ts",
+    "templates/",
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --experimental-strip-types --disable-warning=ExperimentalWarning main.ts",
+    "test": "node --experimental-strip-types --disable-warning=ExperimentalWarning --test 'tests/*.test.ts'",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  }
+}
