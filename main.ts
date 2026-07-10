@@ -19,7 +19,7 @@ const VERSION: string = (() => {
     if (!existsSync(p)) continue;
     try {
       const pkg = JSON.parse(readFileSync(p, "utf-8"));
-      if (pkg.name === "autorc") return pkg.version;
+      if (pkg.name === "autostackrc") return pkg.version;
     } catch {}
   }
   return "0.0.0";
@@ -69,14 +69,14 @@ function parseArgs(argv: string[]): CliArgs {
 
 function showHelp(): void {
   log(`
-  ${bold("autorc")} — Generate rules & commands for your AI code assistants
+  ${bold("autostackrc")} — Generate rules & commands for your AI code assistants
 
   ${bold("Usage:")}
-    npx stackrules                        Detect stack, generate, write (interactive)
-    npx stackrules ${dim("-y")}                     Skip prompts, accept defaults
-    npx stackrules ${dim("--dry-run")}              Show what would be written
-    npx stackrules ${dim("-a claude-code cursor")}  Target specific assistants
-    npx stackrules ${dim("--no-llm")}               Static templates only (offline)
+    npx autostackrc                        Detect stack, generate, write (interactive)
+    npx autostackrc ${dim("-y")}                     Skip prompts, accept defaults
+    npx autostackrc ${dim("--dry-run")}              Show what would be written
+    npx autostackrc ${dim("-a claude-code cursor")}  Target specific assistants
+    npx autostackrc ${dim("--no-llm")}               Static templates only (offline)
 
   ${bold("Options:")}
     -y, --yes         Skip confirmation prompts

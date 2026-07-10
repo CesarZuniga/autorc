@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 
 export function tmpProject(): string {
-  return mkdtempSync(join(tmpdir(), "autorc-test-"));
+  return mkdtempSync(join(tmpdir(), "autostackrc-test-"));
 }
 
 export function writeFile(dir: string, rel: string, content: string): void {

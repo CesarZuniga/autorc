@@ -1,5 +1,5 @@
 {
-  "name": "stackrules",
+  "name": "autostackrc",
   "version": "0.0.1",
   "description": "Auto-detect your tech stack and generate tailored rules & commands for AI code assistants (Claude Code, Cursor, Copilot, opencode)",
   "keywords": [
@@ -16,17 +16,17 @@
   ],
   "license": "MIT",
   "author": "Cesar Zuniga",
-  "homepage": "https://cesarzuniga.github.io/autorc",
+  "homepage": "https://cesarzuniga.github.io/autostackrc",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CesarZuniga/autorc.git"
+    "url": "git+https://github.com/CesarZuniga/autostackrc.git"
   },
   "bugs": {
-    "url": "https://github.com/CesarZuniga/autorc/issues"
+    "url": "https://github.com/CesarZuniga/autostackrc/issues"
   },
   "type": "module",
   "bin": {
-    "autorc": "index.mjs"
+    "autostackrc": "index.mjs"
   },
   "files": [
     "index.mjs",

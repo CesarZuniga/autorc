@@ -8,7 +8,7 @@ export function formatTime(ms: number): string {
 
 export function printBanner(version: string): void {
   log();
-  log(`   ${bold(cyan("autorc"))} ${dim(`v${version}`)}`);
+  log(`   ${bold(cyan("autostackrc"))} ${dim(`v${version}`)}`);
   log(dim("   Rules & commands for your AI code assistants."));
   log();
 }

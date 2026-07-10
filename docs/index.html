@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>autorc — rules & commands for your AI code assistants</title>
+    <title>autostackrc — rules & commands for your AI code assistants</title>
     <meta
       name="description"
       content="Detect your tech stack and generate tailored rules & commands for Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI, no API key."
@@ -144,7 +144,7 @@
   <body>
     <header class="top">
       <div class="wrap">
-        <span class="brand">autorc<span class="dot">.</span></span>
+        <span class="brand">autostackrc<span class="dot">.</span></span>
         <nav>
           <a href="#how">How it works</a>
           <a href="#output">Output</a>
@@ -160,12 +160,12 @@
         <div class="wrap">
           <h1>Your stack, <span class="grad">taught to your AI</span>.</h1>
           <p class="lede">
-            <b>autorc</b> detects your tech stack and generates tailored rules &amp; slash-commands for
+            <b>autostackrc</b> detects your tech stack and generates tailored rules &amp; slash-commands for
             Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI. No API key.
           </p>
           <div class="cmd">
-            <span><span class="prompt">$</span> <span class="mono">npx stackrules</span></span>
-            <button onclick="navigator.clipboard&&navigator.clipboard.writeText('npx stackrules')">copy</button>
+            <span><span class="prompt">$</span> <span class="mono">npx autostackrc</span></span>
+            <button onclick="navigator.clipboard&&navigator.clipboard.writeText('npx autostackrc')">copy</button>
           </div>
           <div class="badges">
             <span class="badge">Node ≥ 22.6</span>
@@ -181,7 +181,7 @@
         <div class="wrap">
           <h2>What it does</h2>
           <p class="sub">
-            autorc <em>generates</em> guidance specific to <em>your</em> project and writes it in each
+            autostackrc <em>generates</em> guidance specific to <em>your</em> project and writes it in each
             assistant's native format — so every AI tool in your repo follows the same rules.
           </p>
         </div>
@@ -213,7 +213,7 @@
             </div>
           </div>
           <div class="note">
-            <b>No API key.</b> autorc never calls an API directly. It detects an installed coder CLI —
+            <b>No API key.</b> autostackrc never calls an API directly. It detects an installed coder CLI —
             <code>claude</code>, <code>opencode</code>, or <code>cursor-agent</code> — runs it headless,
             and parses the JSON it returns. Whatever session that CLI is logged into does the work.
             No CLI found (or <code>--no-llm</code>)? It emits the static templates as-is — never hard-fails.
@@ -224,7 +224,7 @@
       <section id="output">
         <div class="wrap">
           <h2><span class="n">02</span>Output per assistant</h2>
-          <p class="sub">Shared files are edited inside an <code>&lt;!-- autorc:start/end --&gt;</code> block, so re-runs update only that block and leave your own content untouched.</p>
+          <p class="sub">Shared files are edited inside an <code>&lt;!-- autostackrc:start/end --&gt;</code> block, so re-runs update only that block and leave your own content untouched.</p>
           <div class="table-scroll">
             <table>
               <thead>
@@ -262,22 +262,22 @@
           <h2><span class="n">03</span>Usage</h2>
           <p class="sub">Run it in your project root. Interactive by default; scriptable with flags.</p>
           <pre><span class="c"># detect, generate, write (interactive)</span>
-npx stackrules
+npx autostackrc
 
 <span class="c"># accept defaults, no prompts</span>
-npx stackrules <span class="f">-y</span>
+npx autostackrc <span class="f">-y</span>
 
 <span class="c"># preview without writing</span>
-npx stackrules <span class="f">--dry-run</span>
+npx autostackrc <span class="f">--dry-run</span>
 
 <span class="c"># only some assistants</span>
-npx stackrules <span class="f">-a</span> claude-code cursor
+npx autostackrc <span class="f">-a</span> claude-code cursor
 
 <span class="c"># offline: static templates only</span>
-npx stackrules <span class="f">--no-llm</span>
+npx autostackrc <span class="f">--no-llm</span>
 
 <span class="c"># force a specific coder CLI</span>
-npx stackrules <span class="f">--coder</span> opencode</pre>
+npx autostackrc <span class="f">--coder</span> opencode</pre>
           <div class="table-scroll">
             <table>
               <thead><tr><th>Flag</th><th>Effect</th></tr></thead>
@@ -321,8 +321,8 @@ npx stackrules <span class="f">--coder</span> opencode</pre>
 
     <footer>
       <div class="wrap">
-        autorc · MIT ·
-        <a href="https://github.com/CesarZuniga/autorc">source</a>
+        autostackrc · MIT ·
+        <a href="https://github.com/CesarZuniga/autostackrc">source</a>
       </div>
     </footer>
 

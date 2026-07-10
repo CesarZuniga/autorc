@@ -93,7 +93,7 @@ const ruleTemplates = loadRules();
 
 export const TECH_CATALOG: TechDef[] = TECH_SEEDS.map((seed) => {
   const rule = ruleTemplates[seed.id];
-  if (!rule) throw new Error(`autorc: missing rule template templates/rules/${seed.id}.md`);
+  if (!rule) throw new Error(`autostackrc: missing rule template templates/rules/${seed.id}.md`);
   return {
     id: seed.id,
     name: rule.title,

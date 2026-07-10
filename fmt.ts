@@ -1,8 +1,8 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
-export const MARK_START = "<!-- autorc:start -->";
-export const MARK_END = "<!-- autorc:end -->";
+export const MARK_START = "<!-- autostackrc:start -->";
+export const MARK_END = "<!-- autostackrc:end -->";
 
 export interface WriteCtx {
   projectDir: string;
@@ -15,7 +15,7 @@ function ensureDir(path: string): void {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 }
 
-// Replace (or insert) the autorc-managed block inside a shared file,
+// Replace (or insert) the autostackrc-managed block inside a shared file,
 // preserving any user content outside the markers.
 export function upsertBlock(absPath: string, block: string, ctx: WriteCtx, rel: string): void {
   const managed = `${MARK_START}\n${block.trim()}\n${MARK_END}\n`;
@@ -42,7 +42,7 @@ export function upsertBlock(absPath: string, block: string, ctx: WriteCtx, rel: 
   writeFileSync(absPath, next);
 }
 
-// Write a file wholly owned by autorc (commands, .mdc rules, prompts).
+// Write a file wholly owned by autostackrc (commands, .mdc rules, prompts).
 export function writeOwned(absPath: string, content: string, ctx: WriteCtx, rel: string): void {
   ctx.written.push(rel);
   if (ctx.dryRun) return;

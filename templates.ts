@@ -39,13 +39,13 @@ function templatesDir(kind: string): string {
     if (parent === dir) break;
     dir = parent;
   }
-  throw new Error(`autorc: could not locate templates/${kind} directory`);
+  throw new Error(`autostackrc: could not locate templates/${kind} directory`);
 }
 
 // Split a template file into a frontmatter map and the body below it.
 function parseFrontmatter(id: string, kind: string, raw: string): { fm: Record<string, string>; body: string } {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-  if (!match) throw new Error(`autorc: ${kind} template ${id}.md has no frontmatter`);
+  if (!match) throw new Error(`autostackrc: ${kind} template ${id}.md has no frontmatter`);
 
   const fm: Record<string, string> = {};
   for (const line of match[1]!.split(/\r?\n/)) {
@@ -96,7 +96,7 @@ export function loadRules(): Record<string, RuleTemplate> {
         const parsed = JSON.parse(fm.globs);
         if (Array.isArray(parsed) && parsed.length) rule.globs = parsed.map(String);
       } catch {
-        throw new Error(`autorc: rule template ${id}.md has malformed globs frontmatter`);
+        throw new Error(`autostackrc: rule template ${id}.md has malformed globs frontmatter`);
       }
     }
     rules[id] = rule;

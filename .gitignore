@@ -2,4 +2,4 @@ node_modules/
 dist/
 *.log
 .claude/settings.local.json
-autorc-lock.json
+autostackrc-lock.json

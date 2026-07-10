@@ -32,7 +32,7 @@ test("all four writers produce their native files", () => {
   ok(existsSync(join(dir, ".github/prompts/commit.prompt.md")));
   ok(existsSync(join(dir, "AGENTS.md")));
   ok(existsSync(join(dir, ".opencode/command/commit.md")));
-  ok(existsSync(join(dir, "autorc-lock.json")));
+  ok(existsSync(join(dir, "autostackrc-lock.json")));
 });
 
 test("dry-run writes nothing but reports files", () => {

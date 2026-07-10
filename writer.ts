@@ -45,7 +45,7 @@ export function writeForAgents(
       agents,
       files: [...ctx.written].sort(),
     };
-    writeFileSync(join(projectDir, "autorc-lock.json"), JSON.stringify(lock, null, 2) + "\n");
+    writeFileSync(join(projectDir, "autostackrc-lock.json"), JSON.stringify(lock, null, 2) + "\n");
   }
 
   return { written: ctx.written };

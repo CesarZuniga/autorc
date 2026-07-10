@@ -1,14 +1,14 @@
-# autorc
+# autostackrc
 
 **Detect your tech stack → generate tailored rules & commands for your AI code assistants.**
 
-`autorc` *generates* rules and slash-commands specific to your stack and writes them in the native
+`autostackrc` *generates* rules and slash-commands specific to your stack and writes them in the native
 format of each assistant — Claude Code, Cursor, GitHub Copilot, and opencode.
 
-📖 **Docs & portal:** https://cesarzuniga.github.io/autorc (deployed via GitHub Pages from [`docs/`](./docs/index.html)).
+📖 **Docs & portal:** https://cesarzuniga.github.io/autostackrc (deployed via GitHub Pages from [`docs/`](./docs/index.html)).
 
 ```bash
-npx stackrules
+npx autostackrc
 ```
 
 ## How it works
@@ -31,12 +31,12 @@ If no coder CLI is found (or `--no-llm`), it emits the static templates as-is �
 | opencode      | `AGENTS.md` (managed block)                                       | `.opencode/command/*.md`        |
 
 Shared files (`CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`) are edited inside an
-`<!-- autorc:start -->…<!-- autorc:end -->` block, so re-runs update only that block and leave your
-own content untouched. A `autorc-lock.json` records every file written.
+`<!-- autostackrc:start -->…<!-- autostackrc:end -->` block, so re-runs update only that block and leave your
+own content untouched. A `autostackrc-lock.json` records every file written.
 
 ## Enrichment without an API key
 
-`autorc` does **not** call any API directly. It detects an installed coder CLI in this order and runs
+`autostackrc` does **not** call any API directly. It detects an installed coder CLI in this order and runs
 it headless, feeding the prompt on stdin and parsing the JSON it returns:
 
 - `claude` (Claude Code) — `claude -p`
@@ -48,7 +48,7 @@ Whatever session that CLI is already logged into is what does the work. Force on
 ## Options
 
 ```
-npx stackrules                        Detect, generate, write (interactive)
+npx autostackrc                        Detect, generate, write (interactive)
   -y, --yes         Skip confirmation prompts
   --dry-run         Show plan, write nothing
   -a, --agent       Target subset: claude-code cursor copilot opencode
