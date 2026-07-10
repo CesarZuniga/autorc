@@ -1,5 +1,5 @@
 {
-  "name": "autorc",
+  "name": "stackrules",
   "version": "0.0.1",
   "description": "Auto-detect your tech stack and generate tailored rules & commands for AI code assistants (Claude Code, Cursor, Copilot, opencode)",
   "keywords": [

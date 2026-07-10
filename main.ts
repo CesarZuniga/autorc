@@ -72,11 +72,11 @@ function showHelp(): void {
   ${bold("autorc")} — Generate rules & commands for your AI code assistants
 
   ${bold("Usage:")}
-    npx autorc                        Detect stack, generate, write (interactive)
-    npx autorc ${dim("-y")}                     Skip prompts, accept defaults
-    npx autorc ${dim("--dry-run")}              Show what would be written
-    npx autorc ${dim("-a claude-code cursor")}  Target specific assistants
-    npx autorc ${dim("--no-llm")}               Static templates only (offline)
+    npx stackrules                        Detect stack, generate, write (interactive)
+    npx stackrules ${dim("-y")}                     Skip prompts, accept defaults
+    npx stackrules ${dim("--dry-run")}              Show what would be written
+    npx stackrules ${dim("-a claude-code cursor")}  Target specific assistants
+    npx stackrules ${dim("--no-llm")}               Static templates only (offline)
 
   ${bold("Options:")}
     -y, --yes         Skip confirmation prompts

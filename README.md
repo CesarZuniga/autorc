@@ -8,7 +8,7 @@ format of each assistant — Claude Code, Cursor, GitHub Copilot, and opencode.
 📖 **Docs & portal:** https://cesarzuniga.github.io/autorc (deployed via GitHub Pages from [`docs/`](./docs/index.html)).
 
 ```bash
-npx autorc
+npx stackrules
 ```
 
 ## How it works
@@ -48,7 +48,7 @@ Whatever session that CLI is already logged into is what does the work. Force on
 ## Options
 
 ```
-npx autorc                        Detect, generate, write (interactive)
+npx stackrules                        Detect, generate, write (interactive)
   -y, --yes         Skip confirmation prompts
   --dry-run         Show plan, write nothing
   -a, --agent       Target subset: claude-code cursor copilot opencode

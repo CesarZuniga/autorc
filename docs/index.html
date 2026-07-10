@@ -164,8 +164,8 @@
             Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI. No API key.
           </p>
           <div class="cmd">
-            <span><span class="prompt">$</span> <span class="mono">npx autorc</span></span>
-            <button onclick="navigator.clipboard&&navigator.clipboard.writeText('npx autorc')">copy</button>
+            <span><span class="prompt">$</span> <span class="mono">npx stackrules</span></span>
+            <button onclick="navigator.clipboard&&navigator.clipboard.writeText('npx stackrules')">copy</button>
           </div>
           <div class="badges">
             <span class="badge">Node ≥ 22.6</span>
@@ -262,22 +262,22 @@
           <h2><span class="n">03</span>Usage</h2>
           <p class="sub">Run it in your project root. Interactive by default; scriptable with flags.</p>
           <pre><span class="c"># detect, generate, write (interactive)</span>
-npx autorc
+npx stackrules
 
 <span class="c"># accept defaults, no prompts</span>
-npx autorc <span class="f">-y</span>
+npx stackrules <span class="f">-y</span>
 
 <span class="c"># preview without writing</span>
-npx autorc <span class="f">--dry-run</span>
+npx stackrules <span class="f">--dry-run</span>
 
 <span class="c"># only some assistants</span>
-npx autorc <span class="f">-a</span> claude-code cursor
+npx stackrules <span class="f">-a</span> claude-code cursor
 
 <span class="c"># offline: static templates only</span>
-npx autorc <span class="f">--no-llm</span>
+npx stackrules <span class="f">--no-llm</span>
 
 <span class="c"># force a specific coder CLI</span>
-npx autorc <span class="f">--coder</span> opencode</pre>
+npx stackrules <span class="f">--coder</span> opencode</pre>
           <div class="table-scroll">
             <table>
               <thead><tr><th>Flag</th><th>Effect</th></tr></thead>
