@@ -8,165 +8,401 @@
       name="description"
       content="Detect your tech stack and generate tailored rules & commands for Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI, no API key."
     />
+    <meta
+      name="keywords"
+      content="autostackrc, AI coding rules, Claude Code, Cursor, GitHub Copilot, opencode, CLAUDE.md, AGENTS.md, slash commands, tech stack detection, CLI"
+    />
+    <meta name="author" content="Cesar Zuniga" />
+    <meta name="robots" content="index, follow" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <link rel="canonical" href="https://cesarzuniga.github.io/autostackrc/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="autostackrc" />
+    <meta property="og:url" content="https://cesarzuniga.github.io/autostackrc/" />
+    <meta property="og:title" content="autostackrc — rules & commands for your AI code assistants" />
+    <meta
+      property="og:description"
+      content="Detect your tech stack and generate tailored rules & commands for Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI, no API key."
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="autostackrc — rules & commands for your AI code assistants" />
+    <meta
+      name="twitter:description"
+      content="Detect your tech stack and generate tailored rules & commands for your AI code assistants — enriched by your own coder CLI, no API key."
+    />
+
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>"
     />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "autostackrc",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Node.js >= 22.6",
+        "description": "Detect your tech stack and generate tailored rules & commands for Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI, no API key.",
+        "url": "https://cesarzuniga.github.io/autostackrc/",
+        "downloadUrl": "https://www.npmjs.com/package/autostackrc",
+        "codeRepository": "https://github.com/CesarZuniga/autostackrc",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": { "@type": "Person", "name": "Cesar Zuniga" },
+        "sameAs": [
+          "https://github.com/CesarZuniga/autostackrc",
+          "https://www.npmjs.com/package/autostackrc"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* ── Vercel Geist design system (from skills.sh) ─────────────── */
       :root {
-        --bg: #0b0d10;
-        --panel: #12151a;
-        --panel-2: #171b22;
-        --border: #232833;
-        --text: #e6e9ef;
-        --muted: #9aa4b2;
-        --accent: #5eead4;
-        --accent-2: #7dd3fc;
-        --code-bg: #0e1116;
-        --radius: 12px;
+        --bg: #000;
+        --panel: #0a0a0a;
+        --panel-2: #171717;
+        --border: #1f1f1f;
+        --border-strong: #2e2e2e;
+        --text: #ededed;
+        --muted: #a0a0a0;
+        --faint: #8f8f8f;
+        --accent: #0070f7;
+        --accent-hover: #0090ff;
+        --accent-2: #8e51ff;
+        --code-bg: #0a0a0a;
+        --radius: 8px;
+        --radius-lg: 12px;
+        --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        --dur: 0.15s;
       }
       @media (prefers-color-scheme: light) {
         :root {
-          --bg: #f7f8fa;
+          --bg: #fafafa;
           --panel: #ffffff;
-          --panel-2: #f0f2f5;
-          --border: #e2e6ec;
-          --text: #10131a;
-          --muted: #5a6472;
-          --accent: #0d9488;
-          --accent-2: #0284c7;
-          --code-bg: #f0f2f5;
+          --panel-2: #f2f2f2;
+          --border: #ebebeb;
+          --border-strong: #e6e6e6;
+          --text: #171717;
+          --muted: #666;
+          --faint: #595959;
+          --accent: #0071f6;
+          --accent-hover: #005fd8;
+          --accent-2: #7c3aed;
+          --code-bg: #f7f8fa;
         }
       }
       :root[data-theme="dark"] {
-        --bg: #0b0d10; --panel: #12151a; --panel-2: #171b22; --border: #232833;
-        --text: #e6e9ef; --muted: #9aa4b2; --accent: #5eead4; --accent-2: #7dd3fc; --code-bg: #0e1116;
+        --bg: #000; --panel: #0a0a0a; --panel-2: #171717; --border: #1f1f1f; --border-strong: #2e2e2e;
+        --text: #ededed; --muted: #a0a0a0; --faint: #8f8f8f;
+        --accent: #0070f7; --accent-hover: #0090ff; --accent-2: #8e51ff; --code-bg: #0a0a0a;
       }
       :root[data-theme="light"] {
-        --bg: #f7f8fa; --panel: #ffffff; --panel-2: #f0f2f5; --border: #e2e6ec;
-        --text: #10131a; --muted: #5a6472; --accent: #0d9488; --accent-2: #0284c7; --code-bg: #f0f2f5;
+        --bg: #fafafa; --panel: #fff; --panel-2: #f2f2f2; --border: #ebebeb; --border-strong: #e6e6e6;
+        --text: #171717; --muted: #666; --faint: #595959;
+        --accent: #0071f6; --accent-hover: #005fd8; --accent-2: #7c3aed; --code-bg: #f7f8fa;
       }
 
       * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         background: var(--bg);
         color: var(--text);
-        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: -0.01em;
         -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
       code, pre, .mono {
-        font-family: "SF Mono", ui-monospace, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+        font-family: "Geist Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+        letter-spacing: 0;
       }
-      a { color: var(--accent-2); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      a { color: var(--text); text-decoration: none; transition: color var(--dur) var(--ease); }
+      a:hover { color: var(--accent); }
 
-      .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+      /* ── Accessibility (WCAG 2.2) ────────────────────────────────── */
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+      :focus:not(:focus-visible) { outline: none; }
+      /* Focused targets clear the sticky header (2.4.11). */
+      :target, [id] { scroll-margin-top: 76px; }
+
+      .visually-hidden {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+      }
+      .skip-link {
+        position: absolute; left: 12px; top: -60px; z-index: 100;
+        background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px;
+        font-size: 14px; font-weight: 500;
+        transition: top var(--dur) var(--ease);
+      }
+      .skip-link:focus { top: 12px; color: #fff; }
+
+      .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+      /* ── Header ──────────────────────────────────────────────────── */
       header.top {
-        position: sticky; top: 0; z-index: 10;
-        backdrop-filter: blur(10px);
-        background: color-mix(in srgb, var(--bg) 80%, transparent);
+        position: sticky; top: 0; z-index: 20;
+        backdrop-filter: saturate(180%) blur(12px);
+        -webkit-backdrop-filter: saturate(180%) blur(12px);
+        background: color-mix(in srgb, var(--bg) 72%, transparent);
         border-bottom: 1px solid var(--border);
       }
-      .top .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
-      .brand { font-weight: 700; letter-spacing: -0.02em; font-size: 18px; }
-      .brand .dot { color: var(--accent); }
-      .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
-      .top nav a { color: var(--muted); }
-      .top nav a:hover { color: var(--text); text-decoration: none; }
+      .top .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+      .brand { font-weight: 600; letter-spacing: -0.03em; font-size: 17px; display: inline-flex; align-items: center; gap: 8px; }
+      .brand .logo {
+        width: 22px; height: 22px; border-radius: 6px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: inline-flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 13px;
+      }
+      .top nav { margin-left: auto; display: flex; gap: 4px; font-size: 14px; }
+      .top nav a {
+        color: var(--muted); padding: 6px 12px; border-radius: 6px;
+        transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+      }
+      .top nav a:hover { color: var(--text); background: var(--panel-2); }
+      .top .gh { margin-left: 4px; }
+      .top .gh svg { display: block; width: 18px; height: 18px; }
+      @media (max-width: 720px) { .top nav .hide-sm { display: none; } }
 
-      .hero { padding: 72px 0 48px; text-align: center; }
+      /* ── Hero ────────────────────────────────────────────────────── */
+      .hero { position: relative; padding: 96px 0 64px; text-align: center; overflow: hidden; }
+      .hero::before {
+        content: ""; position: absolute; inset: 0; z-index: -1;
+        background:
+          radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%);
+        opacity: 0.9;
+      }
+      .hero .grid-fade {
+        position: absolute; inset: 0; z-index: -2;
+        background-image:
+          linear-gradient(to right, var(--border) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(60% 60% at 50% 0%, #000 0%, transparent 75%);
+        -webkit-mask-image: radial-gradient(60% 60% at 50% 0%, #000 0%, transparent 75%);
+        opacity: 0.5;
+      }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-size: 13px; color: var(--muted);
+        border: 1px solid var(--border); background: var(--panel);
+        padding: 5px 14px 5px 8px; border-radius: 999px; margin-bottom: 26px;
+        transition: border-color var(--dur) var(--ease);
+      }
+      .pill:hover { border-color: var(--border-strong); }
+      .pill .tag {
+        font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+        color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);
+        border-radius: 999px; padding: 2px 8px;
+      }
       .hero h1 {
-        font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 0 0 16px;
-        letter-spacing: -0.03em;
+        font-size: clamp(38px, 6.2vw, 64px); line-height: 1.02; margin: 0 0 18px;
+        letter-spacing: -0.045em; font-weight: 600;
       }
       .hero h1 .grad {
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        background: linear-gradient(100deg, var(--accent), var(--accent-2));
         -webkit-background-clip: text; background-clip: text; color: transparent;
       }
-      .hero p.lede { font-size: clamp(17px, 2.5vw, 21px); color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+      .hero p.lede { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 660px; margin: 0 auto 32px; line-height: 1.55; }
 
       .cmd {
-        display: inline-flex; align-items: center; gap: 12px;
-        background: var(--code-bg); border: 1px solid var(--border);
-        padding: 12px 18px; border-radius: 999px; font-size: 15px;
+        display: inline-flex; align-items: center; gap: 14px;
+        background: var(--panel); border: 1px solid var(--border);
+        padding: 10px 10px 10px 20px; border-radius: 999px; font-size: 15px;
+        transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
       }
-      .cmd .prompt { color: var(--accent); }
+      .cmd:hover { border-color: var(--border-strong); }
+      .cmd .prompt { color: var(--faint); }
       .cmd button {
         border: 1px solid var(--border); background: var(--panel-2); color: var(--muted);
-        border-radius: 8px; padding: 4px 10px; font-size: 12px; cursor: pointer;
+        border-radius: 999px; padding: 6px 14px; font-size: 12.5px; font-weight: 500; cursor: pointer;
+        font-family: inherit;
+        transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
       }
-      .cmd button:hover { color: var(--text); }
+      .cmd button:hover { color: var(--text); border-color: var(--border-strong); background: var(--panel); }
+      .cmd button.copied { color: #fff; background: var(--accent); border-color: var(--accent); }
 
-      .badges { margin-top: 22px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+      .badges { margin-top: 26px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
       .badge {
         font-size: 12px; color: var(--muted); border: 1px solid var(--border);
-        background: var(--panel); border-radius: 999px; padding: 4px 12px;
+        background: var(--panel); border-radius: 999px; padding: 5px 13px;
+        transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
       }
+      .badge:hover { border-color: var(--border-strong); color: var(--text); }
 
-      section { padding: 40px 0; border-top: 1px solid var(--border); }
-      h2 { font-size: 26px; letter-spacing: -0.02em; margin: 0 0 8px; }
-      h2 .n { color: var(--muted); font-size: 15px; font-weight: 500; margin-right: 8px; }
-      section > .wrap > p.sub { color: var(--muted); margin-top: 0; }
+      /* ── Sections ────────────────────────────────────────────────── */
+      section { padding: 56px 0; border-top: 1px solid var(--border); }
+      h2 { font-size: 28px; letter-spacing: -0.03em; margin: 0 0 10px; font-weight: 600; }
+      h2 .n {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 28px; height: 28px; margin-right: 12px; vertical-align: 3px;
+        font-size: 13px; font-weight: 600; font-family: "Geist Mono", monospace;
+        color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);
+        border-radius: 8px;
+      }
+      section > .wrap > p.sub { color: var(--muted); margin-top: 0; max-width: 680px; font-size: 16px; }
 
-      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 22px; }
-      .step { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
-      .step .k { color: var(--accent); font-size: 13px; font-weight: 700; }
-      .step h3 { margin: 6px 0 6px; font-size: 16px; }
-      .step p { margin: 0; color: var(--muted); font-size: 14px; }
+      /* ── Steps ───────────────────────────────────────────────────── */
+      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 28px; }
+      .step {
+        position: relative; background: var(--panel); border: 1px solid var(--border);
+        border-radius: var(--radius-lg); padding: 22px;
+        transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+      }
+      .step:hover {
+        border-color: var(--border-strong); transform: translateY(-3px);
+        box-shadow: 0 8px 28px -12px color-mix(in srgb, var(--accent) 30%, transparent);
+      }
+      .step .k {
+        display: inline-block; color: var(--accent); font-size: 11px; font-weight: 600;
+        letter-spacing: 0.08em; font-family: "Geist Mono", monospace; margin-bottom: 10px;
+      }
+      .step h3 { margin: 0 0 8px; font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+      .step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 
-      .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+      /* ── Table ───────────────────────────────────────────────────── */
+      .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); margin-top: 22px; }
       table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
-      th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
-      th { background: var(--panel-2); color: var(--text); font-weight: 600; }
+      th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+      th { background: var(--panel-2); color: var(--text); font-weight: 600; font-size: 13px; letter-spacing: -0.01em; }
+      tbody tr { transition: background var(--dur) var(--ease); }
+      tbody tr:hover { background: var(--panel); }
       tr:last-child td { border-bottom: none; }
-      td code { background: var(--code-bg); padding: 1px 6px; border-radius: 6px; font-size: 12.5px; }
+      td code { background: var(--code-bg); border: 1px solid var(--border); padding: 2px 7px; border-radius: 6px; font-size: 12.5px; }
 
+      /* ── Code blocks ─────────────────────────────────────────────── */
       pre {
-        background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius);
-        padding: 18px; overflow-x: auto; font-size: 13.5px; line-height: 1.6; margin: 18px 0 0;
+        background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+        padding: 20px; overflow-x: auto; font-size: 13.5px; line-height: 1.7; margin: 22px 0 0;
       }
-      pre .c { color: var(--muted); }
+      code { font-size: 0.9em; }
+      pre .c { color: var(--faint); }
       pre .f { color: var(--accent); }
 
-      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-      .chip { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: var(--muted); }
-
-      .note {
-        margin-top: 18px; background: var(--panel); border: 1px solid var(--border);
-        border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 16px 18px;
+      /* ── Chips ───────────────────────────────────────────────────── */
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+      .chip {
+        background: var(--panel); border: 1px solid var(--border); border-radius: 999px;
+        padding: 6px 14px; font-size: 13px; color: var(--muted);
+        transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
       }
-      .note b { color: var(--text); }
+      .chip:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
 
-      footer { border-top: 1px solid var(--border); padding: 32px 0 56px; color: var(--muted); font-size: 14px; text-align: center; }
+      /* ── Note ────────────────────────────────────────────────────── */
+      .note {
+        margin-top: 22px; background: var(--panel);
+        border: 1px solid var(--border); border-left: 3px solid var(--accent);
+        border-radius: var(--radius-lg); padding: 18px 20px; font-size: 14.5px; color: var(--muted);
+      }
+      .note b { color: var(--text); font-weight: 600; }
+      .note code { background: var(--code-bg); border: 1px solid var(--border); padding: 1px 6px; border-radius: 5px; font-size: 12.5px; color: var(--text); }
+
+      /* ── Footer ──────────────────────────────────────────────────── */
+      footer { border-top: 1px solid var(--border); padding: 40px 0 64px; color: var(--faint); font-size: 14px; text-align: center; }
+      footer a { color: var(--muted); }
+      footer a:hover { color: var(--accent); }
+
+      /* ── Scroll progress bar ─────────────────────────────────────── */
+      .progress {
+        position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 30;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transition: width 0.1s linear;
+      }
+      header.top { transition: box-shadow var(--dur) var(--ease); }
+      header.top.scrolled { box-shadow: 0 1px 0 var(--border), 0 10px 30px -20px rgba(0, 0, 0, 0.7); }
+
+      /* ── Page-load entrance (hero) ───────────────────────────────── */
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+      @keyframes gridIn { from { opacity: 0; } to { opacity: 0.5; } }
+      .hero .grid-fade { animation: gridIn 1.2s var(--ease) both; }
+      .hero .wrap > * { opacity: 0; animation: fadeUp 0.7s var(--ease) forwards; }
+      .hero .pill    { animation-delay: 0.05s; }
+      .hero h1       { animation-delay: 0.15s; }
+      .hero p.lede   { animation-delay: 0.28s; }
+      .hero .cmd     { animation-delay: 0.40s; }
+      .hero .badges  { animation-delay: 0.52s; }
+
+      /* ── Scroll reveal ───────────────────────────────────────────── */
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+      .reveal.in { opacity: 1; transform: none; }
+
+      /* Staggered children once their section reveals. */
+      .reveal .step, .reveal .chip {
+        opacity: 0; transform: translateY(14px);
+        transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+      }
+      .reveal.in .step, .reveal.in .chip { opacity: 1; transform: none; }
+      .reveal.in .step:nth-child(1) { transition-delay: 0.05s; }
+      .reveal.in .step:nth-child(2) { transition-delay: 0.13s; }
+      .reveal.in .step:nth-child(3) { transition-delay: 0.21s; }
+      .reveal.in .step:nth-child(4) { transition-delay: 0.29s; }
+      .reveal.in .chip:nth-child(n) { transition-delay: calc(20ms * var(--i, 0)); }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .reveal, .reveal .step, .reveal .chip { opacity: 1; transform: none; transition: none; }
+        .hero .wrap > *, .hero .grid-fade { opacity: 1; animation: none; }
+        .hero .grid-fade { opacity: 0.5; }
+        .step:hover, .chip:hover { transform: none; }
+        .progress { display: none; }
+      }
     </style>
   </head>
   <body>
-    <header class="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <header class="top" id="top">
       <div class="wrap">
-        <span class="brand">autostackrc<span class="dot">.</span></span>
-        <nav>
+        <span class="brand"><span class="logo" aria-hidden="true">⚙</span>autostackrc</span>
+        <nav aria-label="Primary">
           <a href="#how">How it works</a>
-          <a href="#output">Output</a>
+          <a href="#output" class="hide-sm">Output</a>
           <a href="#usage">Usage</a>
-          <a href="#stack">Stack</a>
-          <a href="#extend">Extend</a>
+          <a href="#stack" class="hide-sm">Stack</a>
+          <a href="#extend" class="hide-sm">Extend</a>
+          <a class="gh" href="https://github.com/CesarZuniga/autostackrc" aria-label="GitHub repository">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero" style="border-top: none">
+    <main id="main">
+      <section class="hero" style="border-top: none" aria-labelledby="hero-title">
+        <div class="grid-fade" aria-hidden="true"></div>
         <div class="wrap">
-          <h1>Your stack, <span class="grad">taught to your AI</span>.</h1>
+          <span class="pill"><span class="tag">CLI</span> Zero-config · No API key</span>
+          <h1 id="hero-title">Your stack, <span class="grad">taught to your AI</span>.</h1>
           <p class="lede">
             <b>autostackrc</b> detects your tech stack and generates tailored rules &amp; slash-commands for
             Claude Code, Cursor, GitHub Copilot, and opencode — enriched by your own coder CLI. No API key.
           </p>
           <div class="cmd">
-            <span><span class="prompt">$</span> <span class="mono">npx autostackrc</span></span>
-            <button onclick="navigator.clipboard&&navigator.clipboard.writeText('npx autostackrc')">copy</button>
+            <span><span class="prompt" aria-hidden="true">$</span> <span class="mono">npx autostackrc</span></span>
+            <button id="copyBtn" type="button" onclick="copyCmd(this)" aria-label="Copy install command to clipboard">Copy</button>
           </div>
+          <output class="visually-hidden" aria-live="polite" id="copyStatus"></output>
           <div class="badges">
             <span class="badge">Node ≥ 22.6</span>
             <span class="badge">Zero runtime deps</span>
@@ -177,9 +413,9 @@
         </div>
       </section>
 
-      <section id="what">
-        <div class="wrap">
-          <h2>What it does</h2>
+      <section id="what" aria-labelledby="what-title">
+        <div class="wrap reveal">
+          <h2 id="what-title">What it does</h2>
           <p class="sub">
             autostackrc <em>generates</em> guidance specific to <em>your</em> project and writes it in each
             assistant's native format — so every AI tool in your repo follows the same rules.
@@ -187,9 +423,9 @@
         </div>
       </section>
 
-      <section id="how">
-        <div class="wrap">
-          <h2><span class="n">01</span>How it works</h2>
+      <section id="how" aria-labelledby="how-title">
+        <div class="wrap reveal">
+          <h2 id="how-title"><span class="n" aria-hidden="true">01</span>How it works</h2>
           <div class="steps">
             <div class="step">
               <div class="k">DETECT</div>
@@ -221,9 +457,9 @@
         </div>
       </section>
 
-      <section id="output">
-        <div class="wrap">
-          <h2><span class="n">02</span>Output per assistant</h2>
+      <section id="output" aria-labelledby="output-title">
+        <div class="wrap reveal">
+          <h2 id="output-title"><span class="n" aria-hidden="true">02</span>Output per assistant</h2>
           <p class="sub">Shared files are edited inside an <code>&lt;!-- autostackrc:start/end --&gt;</code> block, so re-runs update only that block and leave your own content untouched.</p>
           <div class="table-scroll">
             <table>
@@ -257,9 +493,9 @@
         </div>
       </section>
 
-      <section id="usage">
-        <div class="wrap">
-          <h2><span class="n">03</span>Usage</h2>
+      <section id="usage" aria-labelledby="usage-title">
+        <div class="wrap reveal">
+          <h2 id="usage-title"><span class="n" aria-hidden="true">03</span>Usage</h2>
           <p class="sub">Run it in your project root. Interactive by default; scriptable with flags.</p>
           <pre><span class="c"># detect, generate, write (interactive)</span>
 npx autostackrc
@@ -295,17 +531,17 @@ npx autostackrc <span class="f">--coder</span> opencode</pre>
         </div>
       </section>
 
-      <section id="stack">
-        <div class="wrap">
-          <h2><span class="n">04</span>Supported stack</h2>
+      <section id="stack" aria-labelledby="stack-title">
+        <div class="wrap reveal">
+          <h2 id="stack-title"><span class="n" aria-hidden="true">04</span>Supported stack</h2>
           <p class="sub">Frontend, backend, mobile, data, tooling, and infra — extend the catalog to add more.</p>
-          <div class="chips" id="chips"></div>
+          <ul class="chips" id="chips" aria-label="Supported technologies"></ul>
         </div>
       </section>
 
-      <section id="extend">
-        <div class="wrap">
-          <h2><span class="n">05</span>Extending</h2>
+      <section id="extend" aria-labelledby="extend-title">
+        <div class="wrap reveal">
+          <h2 id="extend-title"><span class="n" aria-hidden="true">05</span>Extending</h2>
           <p class="sub">The architecture is one intermediate representation projected by per-assistant writers.</p>
           <pre><span class="c"># add a technology</span>
 → create <span class="f">templates/rules/&lt;id&gt;.md</span> + a seed in TECH_SEEDS (<span class="f">catalog.ts</span>)
@@ -327,6 +563,22 @@ npx autostackrc <span class="f">--coder</span> opencode</pre>
     </footer>
 
     <script>
+      // Copy the install command.
+      function copyCmd(btn) {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText("npx autostackrc").then(function () {
+          var prev = btn.textContent;
+          btn.textContent = "Copied";
+          btn.classList.add("copied");
+          var status = document.getElementById("copyStatus");
+          if (status) status.textContent = "Command copied to clipboard";
+          setTimeout(function () {
+            btn.textContent = prev;
+            btn.classList.remove("copied");
+          }, 1400);
+        });
+      }
+
       // Populate stack chips.
       var TECH = [
         "TypeScript","Node.js","React","Next.js","Vue","Svelte","Angular","Astro","SolidJS",
@@ -336,12 +588,48 @@ npx autostackrc <span class="f">--coder</span> opencode</pre>
         "Vitest","Jest","Playwright","Vite","Turborepo","ESLint","Docker","Terraform","Bun","Deno"
       ];
       var el = document.getElementById("chips");
-      TECH.forEach(function (t) {
-        var s = document.createElement("span");
-        s.className = "chip";
-        s.textContent = t;
-        el.appendChild(s);
+      TECH.forEach(function (t, i) {
+        var li = document.createElement("li");
+        li.className = "chip";
+        li.textContent = t;
+        li.style.setProperty("--i", i);
+        el.appendChild(li);
       });
+
+      // Scroll reveal.
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
+      );
+      document.querySelectorAll(".reveal").forEach(function (n) { io.observe(n); });
+
+      // Scroll progress bar + sticky-header shadow.
+      var bar = document.getElementById("progress");
+      var top = document.getElementById("top");
+      var ticking = false;
+      function onScroll() {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - doc.clientHeight;
+        var y = window.scrollY || doc.scrollTop;
+        if (bar) bar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+        if (top) top.classList.toggle("scrolled", y > 8);
+        ticking = false;
+      }
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+        },
+        { passive: true }
+      );
+      onScroll();
     </script>
   </body>
 </html>
