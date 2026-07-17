@@ -3,3 +3,5 @@ dist/
 *.log
 .claude/settings.local.json
 autostackrc-lock.json
+skills-lock.json
+.claude
